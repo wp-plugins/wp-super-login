@@ -2,9 +2,9 @@
 Contributors: WpAJANS
 Donate link: http://wpajans.net
 Tags: login,wp login,wp login widget
-Requires at least: 3.9
+Requires at least: 2.9
 Tested up to: 4.1
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,10 +37,22 @@ Yes, there is.
 
 == Changelog ==
 
+= 1.1 =
+
+* Choose a Theme Options is coming.
+* You can make your Own Theme.
+* Remember Options.
+
 = 1.0 =
 An excellent introduction plugin for wordpress
 
 == Upgrade Notice ==
+
+= 1.1 =
+
+* Choose a Theme Options is coming.
+* You can make your Own Theme.
+* Remember Options.
 
 = 1.0 =
 
