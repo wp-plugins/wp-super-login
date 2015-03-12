@@ -3,7 +3,7 @@
 Plugin Name: Wp Super Login
 Plugin URI: http://www.wpajans.net
 Description: Theme sidebar add login box.
-Version: 1.0
+Version: 1.1
 Author: WpAJANS
 Author URI: http://www.wpajans.net
 License: GNU
