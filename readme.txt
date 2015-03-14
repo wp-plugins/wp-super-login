@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Wp Super Login ===
 Contributors: WpAJANS
 Donate link: http://wpajans.net
 Tags: login,wp login,wp login widget
