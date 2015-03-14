@@ -4,7 +4,7 @@ Donate link: http://wpajans.net
 Tags: login,wp login,wp login widget
 Requires at least: 2.9
 Tested up to: 4.1
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,8 +34,23 @@ Yes, there is.
 
 1. screenshot-1.png
 2. screenshot-2.png
+1. screenshot-3.png
+2. screenshot-4.png
+1. screenshot-5.png
+2. screenshot-6.png
+1. screenshot-7.png
+2. screenshot-8.png
 
 == Changelog ==
+
+= 1.2 =
+
+* Registration system was added for visitors
+* when a member login or quit, automaticly you will go main page
+* Some errors fixed.
+* The system is more fast now
+* Easy and lovely views are provide.
+* when a member is register, member will choose the password
 
 = 1.1 =
 
@@ -47,6 +62,16 @@ Yes, there is.
 An excellent introduction plugin for wordpress
 
 == Upgrade Notice ==
+
+= 1.2 =
+
+* Registration system was added for visitors
+* when a member login or quit, automaticly you will go main page
+* Some errors fixed.
+* The system is more fast now
+* Easy and lovely views are provide.
+* when a member is register, member will choose the password
+
 
 = 1.1 =
 
