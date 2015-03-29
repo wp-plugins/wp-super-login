@@ -1,14 +1,14 @@
 === Wp Super Login ===
 Contributors: WpAJANS
 Donate link: http://wpajans.net
-Tags: login,wp login,wp login widget
+Tags: login,wp login,wp login widget,login widget,wp login, login plugin,super login
 Requires at least: 2.9
 Tested up to: 4.1
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Best plugin for adding style to your home Panel
+With this plugin now more your site will look good with a choice of 7 different themes wp-super-login plugin with you.
 
 == Description ==
 
@@ -43,9 +43,29 @@ Yes, there is.
 
 == Changelog ==
 
+= 1.3 =
+
+* Seven with the option adapts to the different theme each site.
+
+* you can use three different sites with your foreign languages (English,French and Turkish)
+
+* allows users to enter record ensures that there is.
+
+* some bugs have been fixed.
+
+* Accelerated and improved.
+
+* users are pricing their passwords themselves.
+
+* e-mail confirmation removed.
+
+* Users automatically when input or output is being redirected to the main page.
+
+* The admin panel more modern still came
+
 = 1.2 =
 
-* Registration system was added for visitors
+* Seven with the option adapts to the different theme each site.
 * when a member login or quit, automaticly you will go main page
 * Some errors fixed.
 * The system is more fast now
@@ -62,6 +82,26 @@ Yes, there is.
 An excellent introduction plugin for wordpress
 
 == Upgrade Notice ==
+
+= 1.3 =
+
+* Seven with the option adapts to the different theme each site.
+
+* you can use three different sites with your foreign languages (English,French and Turkish)
+
+* allows users to enter record ensures that there is.
+
+* some bugs have been fixed.
+
+* Accelerated and improved.
+
+* users are pricing their passwords themselves.
+
+* e-mail confirmation removed.
+
+* Users automatically when input or output is being redirected to the main page.
+
+* The admin panel more modern still came
 
 = 1.2 =
 
