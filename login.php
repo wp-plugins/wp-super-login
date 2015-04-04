@@ -203,9 +203,9 @@ function wp_super_login()
  
  function eklentim_fonks() {
  ?>
- <link rel=stylesheet href="<?php bloginfo('url');?>/wp-content/plugins/wp-super-login/codemirror.css">
-<script src="<?php bloginfo('url');?>/wp-content/plugins/wp-super-login/codemirror.js"></script>
-<script src="<?php bloginfo('url');?>/wp-content/plugins/wp-super-login/xml.js"></script>
+ <link rel=stylesheet href="<?php bloginfo('wpurl');?>/wp-content/plugins/wp-super-login/codemirror.css">
+<script src="<?php bloginfo('wpurl');?>/wp-content/plugins/wp-super-login/codemirror.js"></script>
+<script src="<?php bloginfo('wpurl');?>/wp-content/plugins/wp-super-login/xml.js"></script>
 <style>
   .CodeMirror { height: auto; border: 1px solid #ddd; }
   .CodeMirror-scroll { max-height: 200px; }
