@@ -3,7 +3,7 @@
 Plugin Name: Wp Super Login
 Plugin URI: http://www.wpajans.net
 Description: With this plugin now more your site will look good with a choice of 7 different themes wp-super-login plugin with you.
-Version: 1.4
+Version: 1.4.1
 Author: WpAJANS
 Author URI: http://www.wpajans.net
 License: GNU
