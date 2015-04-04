@@ -4,7 +4,7 @@ Donate link: http://wpajans.net
 Tags: login,wp login,wp login widget,login widget,wp login, login plugin,super login
 Requires at least: 2.9
 Tested up to: 4.1
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,24 +43,23 @@ Yes, there is.
 
 == Changelog ==
 
+= 1.4 =
+
+* Were added to the private CSS area.
+* Easier transport was prepared.
+* Acceleration were made.
+* Errors were corrected.
+
 = 1.3 =
 
 * Seven with the option adapts to the different theme each site.
-
 * you can use three different sites with your foreign languages (English,French and Turkish)
-
 * allows users to enter record ensures that there is.
-
 * some bugs have been fixed.
-
 * Accelerated and improved.
-
 * users are pricing their passwords themselves.
-
 * e-mail confirmation removed.
-
 * Users automatically when input or output is being redirected to the main page.
-
 * The admin panel more modern still came
 
 = 1.2 =
@@ -82,6 +81,13 @@ Yes, there is.
 An excellent introduction plugin for wordpress
 
 == Upgrade Notice ==
+
+= 1.4 =
+
+* Were added to the private CSS area.
+* Easier transport was prepared.
+* Acceleration were made.
+* Errors were corrected.
 
 = 1.3 =
 

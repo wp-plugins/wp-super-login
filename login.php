@@ -3,7 +3,7 @@
 Plugin Name: Wp Super Login
 Plugin URI: http://www.wpajans.net
 Description: With this plugin now more your site will look good with a choice of 7 different themes wp-super-login plugin with you.
-Version: 1.3
+Version: 1.4
 Author: WpAJANS
 Author URI: http://www.wpajans.net
 License: GNU
@@ -81,22 +81,136 @@ register_activation_hook(__FILE__, 'eklenti_varsayilan');
 function eklenti_varsayilan( ) {
     add_option('eklenti_secenek', 'English');
     add_option('theme_select', 'Blue');
+    add_option('custom_show', '#toggle-loginCustom,#toggle-registerCustom {
+width: 125px;
+  background: #CC337F;
+  display: block;
+  margin: 0 auto;
+  margin-top: 1%;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  transition: background .3s;
+  border-left: 1px solid #fff;
+  -webkit-transition: background .3s;
+  float: left;
+}
+#toggle-loginCustom,#toggle-registerCustom span:last-child{border-left:0}
+
+
+#toggle-loginCustom:hover,#toggle-registerCustom:hover{
+  background:#D2527F;
+}
+#loginCustom{
+  margin:0 auto;
+  margin-top:8px;
+  margin-bottom:2%;
+  transition:opacity 1s;
+  -webkit-transition:opacity 1s;
+}
+
+
+#loginCustom h1{
+  background:#CC337F;
+  padding:20px 0;
+  font-size:140%;
+  font-weight:300;
+  text-align:center;
+  color:#fff;
+}
+
+
+#registerCustom{
+  margin:0 auto;
+  margin-top:8px;
+  margin-bottom:2%;
+  transition:opacity 1s;
+  -webkit-transition:opacity 1s;
+}
+
+
+#registerCustom h1{
+  background:#CC337F;
+  padding:20px 0;
+  font-size:140%;
+  font-weight:300;
+  text-align:center;
+  color:#fff;
+}
+#registerformCustom form, #registerCustom form{
+  background:#F1A9A0;
+  padding:6% 4%;
+}
+#loginformCustom form, #loginCustom form{
+  background:#F1A9A0;
+  padding:6% 4%;
+}
+#loginsCustom{
+  background:#C3398D;
+  padding:6% 4%;
+  color:#111;
+}
+#loginCustom  input[type="submit"]{
+  width:100%;
+  background:#D2527F;
+  border:0;
+  padding:4%;
+  font-family:".Open Sans.",sans-serif;
+  font-size:100%;
+  color:#fff;
+  cursor:pointer;
+  transition:background .3s;
+  -webkit-transition:background .3s;
+}
+
+#loginCustom input[type="submit"]:hover{
+  background:#D2527F;
+}
+#registerCustom  input[type="submit"]{
+  width:100%;
+    margin: 10px 0;
+
+  background:#D2527F;
+  border:0;
+  padding:4%;
+  font-family:".Open Sans.",sans-serif;
+  font-size:100%;
+  color:#fff;
+  cursor:pointer;
+  transition:background .3s;
+  -webkit-transition:background .3s;
+}
+
+#registerCustom input[type="submit"]:hover{
+  background:#D2527F;
+}');
 }
 register_deactivation_hook(__FILE__, 'eklenti_kaldirildi');
 function eklenti_kaldirildi( ) {
     delete_option('eklenti_secenek');
     delete_option('theme_select');
+    delete_option('custom_show');
 }
 
 add_action('admin_menu', 'wp_super_login');
  
 function wp_super_login()
  {
- add_options_page('Super Login','Super Login', '8', 'wp_super_login', 'eklentim_fonks');
+ add_menu_page('Super Login','Super Login', '8', 'wp_super_login', 'eklentim_fonks');
  }
  
  function eklentim_fonks() {
  ?>
+ <link rel=stylesheet href="<?php bloginfo('url');?>/wp-content/plugins/wp-super-login/codemirror.css">
+<script src="<?php bloginfo('url');?>/wp-content/plugins/wp-super-login/codemirror.js"></script>
+<script src="<?php bloginfo('url');?>/wp-content/plugins/wp-super-login/xml.js"></script>
+<style>
+  .CodeMirror { height: auto; border: 1px solid #ddd; }
+  .CodeMirror-scroll { max-height: 200px; }
+  .CodeMirror pre { padding-left: 7px; line-height: 1.25; }
+</style>
            <?php 
 function plugin_name_get_version() {
     $plugin_data = get_plugin_data( __FILE__ );
@@ -116,7 +230,8 @@ function plugin_name_get_version() {
         <div class="inside">
           Plugin author : Mustafa KÜÇÜK<br>
           Plugin Company : <a target="_blank" href="http://www.wpajans.net">WpAJANS</a><br>
-          Plugin Version : <?php echo plugin_name_get_version();?><br>
+          Plugin Version : <?php echo plugin_name_get_version();?><br><br>
+          You submit to us via WordPress for our free updates <a href="https://wordpress.org/support/view/plug the-reviews/wp-super-login"> ★★★★★ </a> can give :)
                                        </div>
       </div>
     
@@ -158,8 +273,21 @@ function plugin_name_get_version() {
                       <option value="Yellow">Yellow</option>
                       <option value="Gray">Gray</option>
                       <option value="Orange">Orange</option>
+                      <option value="Custom">Custom</option>
                     </select>
                     <br>
+                                                <h2>Custom CSS</h2>
+
+                      <div style="position: relative; margin-top: .5em;">
+                        <textarea id="demotext" name="customcss"><?php echo $eklenti_bilgisi=get_option('custom_show')?></textarea>
+</div>  <script>
+    var editor = CodeMirror.fromTextArea(document.getElementById("demotext"), {
+      lineNumbers: true,
+      mode: "text/html",
+      matchBrackets: true
+    });
+  </script>
+
                     <input type="hidden" id="hidden" name="hidden" value="tmm"/><br />
                     <input type="submit" id="submit" name="submit" value="<?php _e('Save Changes'); ?>" />
                                 </form>
@@ -193,7 +321,8 @@ function plugin_name_get_version() {
         <div class="inside">
           Eklenti Yazarı : Mustafa KÜÇÜK<br>
           Eklentinin geliştirici şirketi : <a target="_blank" href="http://www.wpajans.net">WpAJANS</a><br>
-          Eklenti Versiyonu : <?php echo plugin_name_get_version();?><br>
+          Eklenti Versiyonu : <?php echo plugin_name_get_version();?><br><br>
+          Sizlere ücretsiz güncellemeler sunmamız için bize wordpress üzerinden <a href="https://wordpress.org/support/view/plugin-reviews/wp-super-login"> ★★★★★</a> verebilirsiniz :)
                                        </div>
       </div>
     
@@ -235,9 +364,21 @@ function plugin_name_get_version() {
                       <option value="Yellow">Sarı</option>
                       <option value="Gray">Gri</option>
                       <option value="Orange">Turuncu</option>
+                      <option value="Custom">Özel</option>
 
                     </select>
                     <br>
+                       <h2>Özel CSS</h2>
+
+                      <div style="position: relative; margin-top: .5em;">
+                        <textarea id="demotext" name="customcss"><?php echo $eklenti_bilgisi=get_option('custom_show')?></textarea>
+</div>  <script>
+    var editor = CodeMirror.fromTextArea(document.getElementById("demotext"), {
+      lineNumbers: true,
+      mode: "text/html",
+      matchBrackets: true
+    });
+  </script>
                     <input type="hidden" id="hidden" name="hidden" value="tmm"/><br />
                     <input type="submit" id="submit" name="submit" value="<?php _e('Save Changes'); ?>" />
                 </form>
@@ -273,7 +414,8 @@ function plugin_name_get_version() {
         <div class="inside">
           Annexes Auteur : Mustafa KÜÇÜK<br>
           La société de développement de plug-in : <a target="_blank" href="http://www.wpajans.net">WpAJANS</a><br>
-          Plug-ins Version : <?php echo plugin_name_get_version();?><br>
+          Plug-ins Version : <?php echo plugin_name_get_version();?><br><br>
+          Vous nous soumettez via WordPress pour nos mises à jour gratuites <a href="https://wordpress.org/support/view/plug le super-login">-de-reviews/wp ★★★★★ </a> peut donner :)
                                        </div>
       </div>
     
@@ -317,10 +459,21 @@ function plugin_name_get_version() {
                       <option value="Red">Rouge</option>
 c                      <option value="Yellow">Sarı</option>
                       <option value="Gray">Gris</option>
-                      <option value="Orange">Orange</option>
+                      <option value="Orange">Custom</option>
 
                     </select>
                     <br>
+                      <h2>Custom CSS</h2>
+
+                      <div style="position: relative; margin-top: .5em;">
+                        <textarea id="demotext" name="customcss"><?php echo $eklenti_bilgisi=get_option('custom_show')?></textarea>
+</div>  <script>
+    var editor = CodeMirror.fromTextArea(document.getElementById("demotext"), {
+      lineNumbers: true,
+      mode: "text/html",
+      matchBrackets: true
+    });
+  </script>
                     <input type="hidden" id="hidden" name="hidden" value="tmm"/><br />
                     <input type="submit" id="submit" name="submit" value="<?php _e('Save Changes'); ?>" />
                 </form>
@@ -345,8 +498,10 @@ c                      <option value="Yellow">Sarı</option>
  if ($_POST['hidden'] == 'tmm') {
  $bizim_verimiz = $_POST['langue'];
  $theme_data = $_POST['theme'];
+ $custom_data = $_POST['customcss'];
  update_option('eklenti_secenek', $bizim_verimiz);
  update_option('theme_select', $theme_data);
+ update_option('custom_show', stripslashes($custom_data));
  
  }
 
@@ -371,6 +526,8 @@ if($eklenti_bilgisi=get_option('theme_select')=="Purple"){
   echo'<div id="loginGray"><h1>';
 }    if($eklenti_bilgisi=get_option('theme_select')=="Orange"){
   echo'<div id="loginOrange"><h1>';
+}   if($eklenti_bilgisi=get_option('theme_select')=="Custom"){
+  echo'<div id="loginCustom"><h1>';
 }     
              if($eklenti_bilgisi=get_option('eklenti_secenek')=="English"){
 
@@ -394,7 +551,9 @@ if($eklenti_bilgisi=get_option('theme_select')=="Purple"){
   }if($eklenti_bilgisi=get_option('theme_select')=="Gray"){
   echo '<div id="loginsGray">';
   }if($eklenti_bilgisi=get_option('theme_select')=="Orange"){
-  echo '<div id="loginsv">';
+  echo '<div id="loginsOrange">';
+  }if($eklenti_bilgisi=get_option('theme_select')=="Custom"){
+  echo '<div id="loginsCustom">';
   }
   echo'<a id="btns" href="'.get_bloginfo("wpurl").'/wp-admin/">Dashboard</a>
   <a id="btns" href="'.get_bloginfo("wpurl").'/wp-admin/profile.php">Edit My Profile</a>
@@ -426,6 +585,8 @@ if($eklenti_bilgisi=get_option('theme_select')=="Purple"){
   echo '<div id="loginsGray">';
   }if($eklenti_bilgisi=get_option('theme_select')=="Orange"){
   echo '<div id="loginsOrange">';
+  }if($eklenti_bilgisi=get_option('theme_select')=="Custom"){
+  echo '<div id="loginsCustom">';
   }
   echo'<a id="btns" href="'.get_bloginfo("wpurl").'/wp-admin/">Başlangıç</a>
   <a id="btns" href="'.get_bloginfo("wpurl").'/wp-admin/profile.php">Profilimi Düzenle</a>
@@ -458,6 +619,8 @@ if($eklenti_bilgisi=get_option('theme_select')=="Purple"){
   echo '<div id="loginsGray">';
   }if($eklenti_bilgisi=get_option('theme_select')=="Orange"){
   echo '<div id="loginsOrange">';
+  }if($eklenti_bilgisi=get_option('theme_select')=="Custom"){
+  echo '<div id="loginsCutom">';
   }
   echo'<a id="btns" href="'.get_bloginfo("wpurl").'/wp-admin/">Début</a>
   <a id="btns" href="'.get_bloginfo("wpurl").'/wp-admin/profile.php">Modifier mon profil</a>
@@ -533,6 +696,12 @@ if($eklenti_bilgisi=get_option('theme_select')=="Purple"){
   <span href="#" class="button" id="toggle-registerOrange">Kayıt Ol</span> 
   <?
   echo'<div id="loginOrange">';
+}if($eklenti_bilgisi=get_option('theme_select')=="Custom"){
+  ?>
+  <span href="#" class="button" id="toggle-loginCustom">Giriş Yap</span>
+  <span href="#" class="button" id="toggle-registerCustom">Kayıt Ol</span> 
+  <?
+  echo'<div id="loginCustom">';
 }
 ?>  <h1>Giriş Yap</h1>
   <form name="loginform" id="<?php 
@@ -553,6 +722,8 @@ if($eklenti_bilgisi=get_option('theme_select')=="Purple"){
   echo'loginformGray';
 }if($eklenti_bilgisi=get_option('theme_select')=='Orange'){
   echo'loginformOrange';
+}if($eklenti_bilgisi=get_option('theme_select')=='Custom'){
+  echo'loginformCustom';
 }
 ?>" action="<?php bloginfo("url");?>/wp-login.php" method="post">
     <input type="text" name="log" placeholder="Kullanıcı Adınız" />
@@ -585,6 +756,8 @@ if($eklenti_bilgisi=get_option('theme_select')=="Yellow"){
   echo'<div id="registerGray">';
 }if($eklenti_bilgisi=get_option('theme_select')=="Orange"){
   echo'<div id="registerOrange">';
+}if($eklenti_bilgisi=get_option('theme_select')=="Custom"){
+  echo'<div id="registerCustom">';
 }
 ?>  <h1>Üye Ol</h1>
   <form name="loginform" id="<?php 
@@ -605,6 +778,8 @@ if($eklenti_bilgisi=get_option('theme_select')=="Purple"){
   echo'registerformGray';
 }if($eklenti_bilgisi=get_option('theme_select')=='Orange'){
   echo'registerformOrange';
+}if($eklenti_bilgisi=get_option('theme_select')=='Custom'){
+  echo'registerformCustom';
 }
 ?>" action="<?php bloginfo("url");?>/wp-login.php?action=register" method="post">
     <input type="text" name="user_login" placeholder="Kullanıcı Adınız" />
@@ -670,6 +845,12 @@ if($eklenti_bilgisi=get_option('theme_select')=="Purple"){
   <span href="#" class="button" id="toggle-registerOrange">Register</span> 
   <?
   echo'<div id="loginOrange">';
+}if($eklenti_bilgisi=get_option('theme_select')=="Custom"){
+  ?>
+  <span href="#" class="button" id="toggle-loginCustom">Login</span>
+  <span href="#" class="button" id="toggle-registerCustom">Register</span> 
+  <?
+  echo'<div id="loginCustom">';
 }
 ?>  <h1>Login</h1>
   <form name="loginform" id="<?php 
@@ -690,6 +871,8 @@ if($eklenti_bilgisi=get_option('theme_select')=="Purple"){
   echo'loginformGray';
 }if($eklenti_bilgisi=get_option('theme_select')=='Orange'){
   echo'loginformOrange';
+}if($eklenti_bilgisi=get_option('theme_select')=='Custom'){
+  echo'loginformCustom';
 }
 ?>" action="<?php bloginfo("url");?>/wp-login.php" method="post">
     <input type="text" name="log" placeholder="User Name" />
@@ -721,6 +904,8 @@ if($eklenti_bilgisi=get_option('theme_select')=="Purple"){
   echo'<div id="registerGray">';
 }if($eklenti_bilgisi=get_option('theme_select')=="Orange"){
   echo'<div id="registerOrange">';
+}if($eklenti_bilgisi=get_option('theme_select')=="Custom"){
+  echo'<div id="registerCustom">';
 }
 ?>  <h1>Register</h1>
   <form name="loginform" id="<?php 
@@ -741,6 +926,8 @@ if($eklenti_bilgisi=get_option('theme_select')=="Purple"){
   echo'registerformGray';
 }if($eklenti_bilgisi=get_option('theme_select')=='Orange'){
   echo'registerformOrange';
+}if($eklenti_bilgisi=get_option('theme_select')=='Custom'){
+  echo'registerformCustom';
 }
 ?>" action="<?php bloginfo("url");?>/wp-login.php?action=register" method="post">
     <input type="text" name="user_login" placeholder="User Name" />
@@ -809,6 +996,12 @@ if($eklenti_bilgisi=get_option('theme_select')=="Purple"){
   <span href="#" class="button" id="toggle-registerOrange">Se enregistrer</span> 
   <?
   echo'<div id="loginOrange">';
+}if($eklenti_bilgisi=get_option('theme_select')=="Custom"){
+  ?>
+  <span href="#" class="button" id="toggle-loginCustom">S'identifier</span>
+  <span href="#" class="button" id="toggle-registerCustom">Se enregistrer</span> 
+  <?
+  echo'<div id="loginCustom">';
 }
 ?>  <h1>S'identifier</h1>
   <form name="loginform" id="<?php 
@@ -829,6 +1022,8 @@ if($eklenti_bilgisi=get_option('theme_select')=="Purple"){
   echo'loginformGray';
 }if($eklenti_bilgisi=get_option('theme_select')=='Orange'){
   echo'loginformOrange';
+}if($eklenti_bilgisi=get_option('theme_select')=='Custom'){
+  echo'loginformCustom';
 }
 ?>" action="<?php bloginfo("url");?>/wp-login.php" method="post">
  <input type="text" name="log" placeholder="Nom d'utilisateur" />
@@ -860,6 +1055,8 @@ if($eklenti_bilgisi=get_option('theme_select')=="Purple"){
   echo'<div id="registerGray">';
 }if($eklenti_bilgisi=get_option('theme_select')=="Orange"){
   echo'<div id="registerOrange">';
+}if($eklenti_bilgisi=get_option('theme_select')=="Custom"){
+  echo'<div id="registerCustom">';
 }
 ?>  <h1>Se enregistrer</h1>
   <form name="loginform" id="<?php 
@@ -880,6 +1077,8 @@ if($eklenti_bilgisi=get_option('theme_select')=="Purple"){
   echo'registerformGray';
 }if($eklenti_bilgisi=get_option('theme_select')=='Orange'){
   echo'registerformOrange';
+}if($eklenti_bilgisi=get_option('theme_select')=='Custom'){
+  echo'registerformCustom';
 }
 ?>" action="<?php bloginfo("url");?>/wp-login.php?action=register" method="post">
     <input type="text" name="user_login" placeholder="Nom d'utilisateur" />
@@ -1046,6 +1245,26 @@ $('#toggle-registerOrange').click(function(){
 
 <?}?>
 
+<?php if($eklenti_bilgisi=get_option('theme_select')=="Custom"){
+?>
+  $('#registerCustom').hide();
+  $('#toggle-loginCustom').attr('style',  'background-color:#F89406');
+
+$('#toggle-registerCustom').click(function(){
+  $('#loginCustom').hide();
+  $('#registerCustom').show();
+  $('#toggle-loginCustom').removeAttr('style',  'background-color:#F89406');
+  $('#toggle-registerCustom').attr('style',  'background-color:#F89406');
+
+
+  $('#toggle-loginCustom').click(function(){
+  $('#registerCustom').hide();
+  $('#toggle-registerCustom').removeAttr('style',  'background-color:#F89406');
+  $('#toggle-loginCustom').attr('style',  'background-color:#F89406');
+  $('#loginCustom').show();
+
+<?}?>
+
 
 });});</script>
 <style>@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
@@ -1097,6 +1316,15 @@ $('#toggle-registerOrange').click(function(){
 #btns:hover{
   background:#2288bb;
 }
+
+/* Theme Custom */
+<?php echo $eklenti_bilgisi=get_option('custom_show');?>
+
+
+/***********************************************************************/
+
+
+
 
 /* Theme Blue */
 
