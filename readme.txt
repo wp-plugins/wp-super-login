@@ -3,7 +3,7 @@ Contributors: truser
 Donate link: https://goo.gl/YTDiyS
 Tags: login,wp login,wp login widget,login widget,wp login, login plugin,super login
 Requires at least: 2.9
-Tested up to: 4.1
+Tested up to: 4.1.4
 Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
