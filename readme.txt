@@ -1,6 +1,6 @@
 === Wp Super Login ===
-Contributors: WpAJANS
-Donate link: http://wpajans.net
+Contributors: truser
+Donate link: https://goo.gl/YTDiyS
 Tags: login,wp login,wp login widget,login widget,wp login, login plugin,super login
 Requires at least: 2.9
 Tested up to: 4.1
