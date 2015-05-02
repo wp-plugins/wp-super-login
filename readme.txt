@@ -1,7 +1,7 @@
 === Wp Super Login ===
 Contributors: truser
 Donate link: https://goo.gl/YTDiyS
-Tags: login,wp login,wp login widget,login widget,wp login, login plugin,super login
+Tags: login,wp login,wp login widget,login widget,wp login, login plugin,super login,widget,add widget,register,register page,register widget,widget register,login page,sidebar login widget,sidebar register,sidebar register widget
 Requires at least: 2.9
 Tested up to: 4.1.4
 Stable tag: 1.4.1
